@@ -8,21 +8,23 @@ namespace DotnetIteration
 
     public static class Iteration
     {
+        private const string V = "needle";
+
         /*
-           Welcome to Interation
+Welcome to Iteration
 
-           In each method below you will see instructions that detail the requirements
-           the method must implement to make the test pass.
+In each method below you will see instructions that detail the requirements
+the method must implement to make the test pass.
 
-           To start on a method comment out, or remove, the line
-           `throw new System.NotImplementedException();`
+To start on a method comment out, or remove, the line
+`throw new System.NotImplementedException();`
 
-           As you write and save your code, you can look in your terminal where you
-           ran `dotnet watch test` to see if your code is working. The tests
-           continuously check your work each time you save. If a test is failing
-           you have not yet completed that method. Once you finish a method and have
-           it correct, the test will tell you how the next method is working.
-        */
+As you write and save your code, you can look in your terminal where you
+ran `dotnet watch test` to see if your code is working. The tests
+continuously check your work each time you save. If a test is failing
+you have not yet completed that method. Once you finish a method and have
+it correct, the test will tell you how the next method is working.
+*/
 
 
         //  
@@ -32,7 +34,11 @@ namespace DotnetIteration
         //
         public static IEnumerable<string> Yelling(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var list = words; 
+ 
+            var newList = list.Select(word => word.ToUpper());
+
+            return newList;
         }
 
 
@@ -43,7 +49,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> Double(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var newNumbers = numbers;
+
+            var newNumberList = newNumbers.Select(numerals => numerals *2);
+
+            return newNumberList;
         }
 
 
@@ -55,7 +65,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> StringyIndexes(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var newWords = words;
+
+            var newWordsList = newWords.Select(((newWords, index) => $"{newWords} is at index {index}"));
+
+            return newWordsList;
         }
 
 
@@ -65,7 +79,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var list = numbers;
+
+            var evenStevens = list.Where(number => number % 2 == 0).ToList();
+
+            return evenStevens;
         }
 
 
@@ -76,7 +94,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenIndexedSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var list = numbers;
+
+            var evenIndexes = list.Where((item, index) => index % 2 == 0);
+
+            return evenIndexes;
         }
 
 
@@ -95,7 +117,12 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> BestMovieOfTheYear(List<Movie> movies, int yearToMatch)
         {
-            throw new System.NotImplementedException();
+            var list = movies;
+            var year = yearToMatch;
+            
+            var bestMovies = list.Where(movie => movie.Score > 90 && movie.Year == year).Select(movie => movie.Name);
+            
+            return bestMovies;
         }
 
 
@@ -105,7 +132,11 @@ namespace DotnetIteration
         // 
         public static bool EveryoneIsOdd(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var list = numbers;
+
+            var isEveryNumberOdd = list.All(number => number % 2 == 1);
+
+            return isEveryNumberOdd;
         }
 
 
@@ -116,7 +147,11 @@ namespace DotnetIteration
         // 
         public static string FindTheNeedle(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            var list = sentences;
+
+            var foundIt = list.First(list => list.Contains("needle"));
+
+            return foundIt;
         }
 
 
@@ -127,7 +162,11 @@ namespace DotnetIteration
         // 
         public static int FindTheNeedleIndex(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            var list = sentences;
+
+            var foundIndex = list.FindIndex(list => list.Contains("needle"));
+
+            return foundIndex;
         }
 
 
@@ -138,7 +177,11 @@ namespace DotnetIteration
         // 
         public static bool SomeoneToLove(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var list = words;
+
+            var trueLove = list.Any(list => list.Length == 4);
+
+            return trueLove;
         }
     }
 }
